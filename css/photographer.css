@@ -100,14 +100,17 @@ form textarea{
     font-size: 1.2rem;
     color:#901C1C;
 }
+.card_media{
+    margin:15px;
+}
 .card_media img{
-    width: 300px;
-    height: 250px;
+    width: 250px;
+    height: 200px;
     border-radius:5px;
 }
 .card_media video{
-    width: 300px;
-    height: 250px;
+    width: 250px;
+    height: 200px;
     border-radius:5px;
 }
 .media{
@@ -125,4 +128,34 @@ form textarea{
     background-color: #DB8876;
     font-size: 1.1rem;
     font-weight: bold;
+}
+.tri{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.tri label{
+    font-weight: bold;
+    padding-right: 20px;
+}
+#tri_media{
+    background-color: #901C1C;
+    color:white;
+    border:none;
+    border-radius: 5px;
+    width: 150px;
+    height: 40px;
+}
+#tri_media option{
+    font-family: "DM Sans", sans-serif;
+    font-size: 1rem;
+    /* height: 40px;
+    padding: 50px;
+    margin:50px; */
+}
+#tri_media option::before{
+    content: "";
+    border:5px solid white;
+    width: 90%;
+    position: absolute;
+    bottom: 0;
 }

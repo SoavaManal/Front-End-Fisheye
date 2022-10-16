@@ -44,7 +44,8 @@ async function displayData(photographer) {
 
 // recuperer le first-name du paramettre
 // pour afficher le dossier d'image de chaque photographer
-const firstName = params.get("name").split(" ")[0];
+const name = params.get("name").split(" ")[0];
+const firstName = name.replace("-", " ");
 console.log(firstName);
 
 // fetch les datats medias pour le photographer en question
