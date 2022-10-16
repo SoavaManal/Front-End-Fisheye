@@ -49,19 +49,27 @@ h1 {
 
 .photographer_section article a{
     text-align: center;
-    display:inline-block;
+    /* display: inline-block; */
+	/* border-radius: 100px; */
+	/* width: 200px; */
+	/* height: 200px; */
+	/* overflow: hidden; */
+    /* margin-bottom: 50px; */
 }
 
 .photographer_section article a h2 {
     color: #D3573C;
     font-size: 2em;
     font-weight: lighter;
+    /* position: absolute; */
 }
 
-.photographer_section article img {
-    height: 200px;
-    width: 200px;
+.photographer_section article a img {
+	/* object-fit: cover; */
+	width: 200px;
+	height: 200px;
     border-radius: 50%;
+	/* transform:scale(2) translateY(40px) translateX(-50px); */
 
 }
 
