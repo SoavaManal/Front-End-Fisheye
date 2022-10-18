@@ -83,20 +83,21 @@ async function getEncart(photographer, medias) {
   });
 
   // possibilitté de liké les photos et videos
-  let like = 0;
   const heartIcon = document.querySelectorAll(".heart");
   function heartLogique(like) {
     switch (like) {
-      case 1:
-        like--;
-        likes--;
-        break;
       case 0:
-        like++;
+        like = 1;
         likes++;
         break;
+      case 1:
+        like = 0;
+        likes--;
+        break;
     }
+    console.log("apres le switch", like);
   }
+  let like = 0;
   heartIcon.forEach((heart) => {
     heart.addEventListener("click", () => {
       heartLogique(like);

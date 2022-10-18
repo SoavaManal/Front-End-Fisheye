@@ -37,6 +37,7 @@ export function photographerFactory(data) {
 
   function getPohotographersInfo() {
     const barreInfo = document.createElement("div");
+    barreInfo.classList.add("info_photographer");
 
     const h1 = document.createElement("h1");
     h1.textContent = name;
