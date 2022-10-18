@@ -36,28 +36,54 @@ export function mediaFactory(data) {
 
     const icon = document.createElement("span");
     icon.innerHTML = `<i class="fa-solid fa-heart"></i>`;
+    icon.classList.add("heart");
 
     span.appendChild(icon);
     barreInfo.appendChild(p);
     barreInfo.appendChild(span);
-
     article.appendChild(barreInfo);
 
     return article;
   }
-  // function getEncart() {
-  //   const encart = document.createElement("aside");
-  //   encart.classList.add("encart");
+  function mediaModal(name) {
+    const picture = `assets/photographers/${name}/${image}`;
+    const videoMedia = `assets/photographers/${name}/${video}`;
 
-  //   // const p1 = document.createElement("p");
-  //   // p1.textContent = sommeLike;
+    const lightbox = document.createElement("section");
+    lightbox.classList.add("media_section");
 
-  //   const p2 = document.createElement("p");
-  //   p2.innerText = price + "€ / jour";
-  //   encart.appendChild(p2);
+    const imgLightbox = document.createElement("img");
+    const videoLightbox = document.createElement("video");
 
-  //   return encart;
-  // }
+    const h1 = document.createElement("h1");
+
+    const divMedia = document.createElement("div");
+    divMedia.classList.add("media_sliders");
+
+    const span_left = document.createElement("span");
+    span_left.classList.add("span_left");
+    span_left.innerHTML = `<i class="fa-solid fa-chevron-left"></i>`;
+    divMedia.appendChild(span_left);
+    if (video) {
+      videoLightbox.setAttribute("src", videoMedia);
+      videoLightbox.setAttribute("controls", "");
+      divMedia.appendChild(videoLightbox);
+    }
+    if (image) {
+      imgLightbox.setAttribute("src", picture);
+      divMedia.appendChild(imgLightbox);
+    }
+    const span_right = document.createElement("span");
+    span_right.classList.add("span_right");
+    span_right.innerHTML = `<i class="fa-solid fa-chevron-right"></i>`;
+    divMedia.appendChild(span_right);
+
+    h1.innerText = title;
+    lightbox.appendChild(divMedia);
+    lightbox.appendChild(h1);
+
+    return lightbox;
+  }
 
   return {
     id,
@@ -65,5 +91,6 @@ export function mediaFactory(data) {
     title,
     likes,
     getMedia,
+    mediaModal,
   };
 }

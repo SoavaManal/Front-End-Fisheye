@@ -159,3 +159,54 @@ form textarea{
     position: absolute;
     bottom: 0;
 }
+/* #media_modal{
+    display: none;
+} */
+#media_modal{
+    display: none;
+    margin:auto;
+    width:650px;
+    height: 600px;
+    overflow: hidden;
+    position: absolute;
+    top:150px;
+    left:10%;
+    background-color: white;
+
+}
+.container{
+    display: flex;
+    flex-wrap: nowrap;
+}
+.media_section{
+    margin-left: 45px;
+    margin-right: 45px;
+}
+.media_section img{
+    width: 500px;
+    height: 500px;
+    margin:20px;
+}
+.media_section video{
+    width: 500px;
+    height: 500px;
+    margin:20px;
+}
+.media_section h1{
+    color: #901C1C;
+    font-size: 1.3rem;
+    font-weight: lighter;
+    margin-left:35px;
+
+}
+.media_sliders{
+    display: flex;
+    align-items: center;
+}
+.close{
+    background-color: #901C1C;
+    position: absolute;
+}
+.effet_flou{
+    filter : blur(10px);
+}
