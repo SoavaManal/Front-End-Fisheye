@@ -21,10 +21,10 @@
         <div class="tri">
           <label for="tri_media">Trier par</label>
           <select name="tri_media" id="tri_media">
-            <option value="">---</option>
-            <option value="popularite">Popularité</option>
-            <option value="date">Date</option>
-            <option value="titre">Titre</option>
+            <option value="" class="option">---</option>
+            <option value="popularite" class="option">Popularité</option>
+            <option value="date" class="option">Date</option>
+            <option value="titre" class="option">Titre</option>
           </select>
         </div>
         <div class="media"></div>
@@ -63,14 +63,17 @@
 			</div>
 		</div>
     <div id="media_modal">
+      <!-- <img src="assets/icons/close.svg" class="close" aria-label="fermer le modale" /> -->
+      <span class="close">
+        <i class="fa-solid fa-xmark"></i>
+      </span>
       <div class="container">
-        <img src="assets/icons/close.svg" class="close" aria-label="fermer le modale" />
       </div>
     </div>
     <!-- <script src="scripts/factories/photographer.js"></script> -->
     <script type="module" src="/scripts/pages/photographer.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
-    <script src="/scripts/utils/mediaModal.js"></script>
+    <script type="module" src="/scripts/utils/mediaModal.js"></script>
     <script src="https://kit.fontawesome.com/149abac868.js" crossorigin="anonymous"></script>
   </body>
 </html>

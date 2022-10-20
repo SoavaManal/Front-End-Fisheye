@@ -7,7 +7,7 @@ import { modalMedia } from "../utils/mediaModal.js";
 // recuperer le id en paramettre
 const params = new URLSearchParams(document.location.search); // envoi les params du url
 const id = params.get("id"); // envoi le params en argument
-console.log(id);
+console.log("le id: ", id);
 
 // fonction pour fetch les donnees du photographer
 async function getPhotographer() {
@@ -47,7 +47,7 @@ async function displayData(photographer) {
 // pour afficher le dossier d'image de chaque photographer
 const name = params.get("name").split(" ")[0];
 const firstName = name.replace("-", " ");
-console.log(firstName);
+console.log("first Name: ", firstName);
 
 // fetch les datats medias pour le photographer en question
 async function getMedia() {
@@ -83,35 +83,41 @@ async function getEncart(photographer, medias) {
   });
 
   // possibilitté de liké les photos et videos
-  const heartIcon = document.querySelectorAll(".heart");
+  // let like = 0;
+
   function heartLogique(like) {
     switch (like) {
       case 0:
-        like = 1;
+        like++;
         likes++;
+        console.log("like:", like);
         break;
       case 1:
-        like = 0;
+        like--;
         likes--;
+        console.log("like:", like);
         break;
     }
-    console.log("apres le switch", like);
+    return like;
   }
-  let like = 0;
-  heartIcon.forEach((heart) => {
-    heart.addEventListener("click", () => {
-      heartLogique(like);
-      console.log("click heart");
-      console.log(likes);
-      console.log(like);
+  const p1 = document.createElement("p");
+  const heartIcon = document.querySelectorAll(".heart");
+  for (let i = 0; i < heartIcon.length; i++) {
+    let like = 0;
+    heartIcon[i].addEventListener("click", () => {
+      like = heartLogique(like);
+      console.log("deja liké ou pas: ", like);
+      console.log("totale des likes: ", likes);
+
+      p1.textContent = likes;
+      const icon = document.createElement("span");
+      icon.innerHTML = `<i class="fa-solid fa-heart"></i>`;
+      p1.appendChild(icon);
     });
-  });
+  }
 
   console.log("le total du likes:", likes);
-
-  const p1 = document.createElement("p");
   p1.textContent = likes;
-
   const icon = document.createElement("span");
   icon.innerHTML = `<i class="fa-solid fa-heart"></i>`;
   p1.appendChild(icon);
@@ -132,10 +138,14 @@ await displayData(photographer);
 await displayMedia(media);
 await getEncart(photographer, media);
 
+//--- affichage du modal media
+const allMedias = await getMedia();
+modalMedia(allMedias.length);
+console.log("le nombre de medias: ", allMedias.length);
+
 // ---selector:trier les medias---
 
-const media_trier = await getMedia();
-const medias_array = Array.from(media_trier);
+//const medias_array = Array.from(allMedias);
 const leTri = document.querySelector("#tri_media");
 leTri.addEventListener("change", (e) => {
   console.log(e.target.value);
@@ -144,29 +154,36 @@ leTri.addEventListener("change", (e) => {
   switch (e.target.value) {
     case "":
       document.querySelector(".media").innerHTML = "";
-      displayMedia(media_trier);
+      document.querySelector(".container").innerHTML = "";
+      displayMedia(allMedias);
+      // modalMedia();
       break;
     case "popularite":
-      medias_array.sort((a, b) => b.likes - a.likes);
-      console.log(medias_array);
+      allMedias.sort((a, b) => b.likes - a.likes);
+      console.log(allMedias);
       document.querySelector(".media").innerHTML = "";
-      displayMedia(medias_array);
+      document.querySelector(".container").innerHTML = "";
+      displayMedia(allMedias);
+      // modalMedia();
       break;
     case "date":
-      medias_array.sort(
+      allMedias.sort(
         (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
       );
-      console.log(medias_array);
+      console.log(allMedias);
       document.querySelector(".media").innerHTML = "";
-      displayMedia(medias_array);
+      document.querySelector(".container").innerHTML = "";
+      displayMedia(allMedias);
+      // modalMedia();
       break;
     case "titre":
-      medias_array.sort((a, b) => a.title[0].localeCompare(b.title[0]));
-      console.log(medias_array);
+      allMedias.sort((a, b) => a.title[0].localeCompare(b.title[0]));
+      console.log(allMedias);
       document.querySelector(".media").innerHTML = "";
-      displayMedia(medias_array);
+      document.querySelector(".container").innerHTML = "";
+      displayMedia(allMedias);
+      // modalMedia();
       break;
   }
+  modalMedia(allMedias.length);
 });
-
-modalMedia();

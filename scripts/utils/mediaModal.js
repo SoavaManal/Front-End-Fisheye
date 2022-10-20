@@ -1,23 +1,26 @@
 // close or open modale
-export function modalMedia() {
-  const closeIt = document.querySelector(".close");
-  closeIt.addEventListener("click", () => {
-    document.querySelector("#media_modal").style.display = "none";
-    document.querySelector("#main").classList.toggle("effet_flou");
-  });
-
-  const lightbox = document.querySelectorAll(".media_lightbox");
-  for (let btn_media of lightbox) {
-    btn_media.addEventListener("click", () => {
+export function modalMedia(nbr_media) {
+  // click
+  const btn_media = document.querySelectorAll(".media_lightbox");
+  for (let i = 0; i < btn_media.length; i++) {
+    btn_media[i].addEventListener("click", () => {
       document.querySelector("#media_modal").style.display = "block";
+      document.querySelector(".container").style.transform =
+        "translate(" + -i * 655 + "px)";
       document.querySelector("#main").classList.toggle("effet_flou");
     });
   }
 
+  // close
+  const closeIt = document.querySelector(".close");
+  closeIt.addEventListener("click", () => {
+    console.log(closeIt);
+    console.log("click");
+    document.querySelector("#media_modal").style.display = "none";
+    document.querySelector("#main").classList.toggle("effet_flou");
+  });
+
   // glisser a gauche et a droite
-  // nbr de media a defiler
-  let nbr_media = document.querySelectorAll(".media_section").length;
-  console.log(nbr_media);
 
   let position = 0;
   const right = document.querySelectorAll(".span_right");
