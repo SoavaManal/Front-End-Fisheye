@@ -3,6 +3,7 @@ export function photographerFactory(data) {
 
   const picture = `assets/photographers/Photographers ID Photos/${portrait}`;
 
+  // structurer le DOM page d'accueil
   function getUserCardDOM() {
     const article = document.createElement("article");
 
@@ -35,6 +36,7 @@ export function photographerFactory(data) {
     return article;
   }
 
+  // Structrer le DOM page photographer
   function getPohotographersInfo() {
     const barreInfo = document.createElement("div");
     barreInfo.classList.add("info_photographer");

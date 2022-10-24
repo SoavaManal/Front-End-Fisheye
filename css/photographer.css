@@ -20,6 +20,18 @@
     border-radius: 5px;
     cursor: pointer;
 }
+.contact_form{
+    margin-top:60px;
+}
+.erreur{
+    color:#dd1f1f
+}
+.header_contact{
+    color:black;
+    font-size: 2.2rem;
+    font-weight: lighter;
+    padding-top: 80px;
+}
 
 .modal {
     border-radius: 5px;
@@ -172,29 +184,14 @@ form textarea{
 }
 .option{
     font-family: "DM Sans", sans-serif;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     height: 40px;
     margin:50px;
     border-bottom: 2px solid white;
 }
-  
-/* .option::before{
-    content: "";
-    border:5px solid white;
-    width: 90%;
-    position: absolute;
-    bottom: 0;
-} */ 
-/* #tri_media option::before{
-    content: "";
-    border:5px solid white;
-    width: 90%;
-    position: absolute;
-    bottom: 0;
-} */
-/* #media_modal{
-    display: none;
-} */
+.option_null{
+    height: 0;
+}
 #media_modal{
     display: none;
     margin:auto;
@@ -239,10 +236,9 @@ form textarea{
 .close{
     color: #901C1C;
     font-size: 2.2rem;
-    position: absolute;
-    right:30px;
-    top:20px;
+    float: right;
+    margin:20px;
 }
 .effet_flou{
-    filter : blur(10px);
+    filter: blur(10px)
 }

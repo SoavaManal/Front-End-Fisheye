@@ -77,12 +77,13 @@ h1 {
 
 .photographer_section article h3 {
     color: #D3573C;
-    font-size: 0.9em;
+    font-size: 1.5em;
     font-weight: lighter;
 }
 .photographer_section article p {
-    font-size: 0.7em;
+    font-size: 1em;
+    text-align: center;
 }
 .p_gray{
-    color:gray;
+    color:rgb(97, 91, 91);
 }

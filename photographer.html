@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8">
@@ -10,7 +10,7 @@
   <body>
     <header>
       <a href="index.html">
-        <img src="assets/images/logo.png" class="logo" />
+        <img src="assets/images/logo.png" class="logo" alt="page d'accueil de Fisheye"/>
       </a>
     </header>
     <main id="main">
@@ -21,10 +21,10 @@
         <div class="tri">
           <label for="tri_media">Trier par</label>
           <select name="tri_media" id="tri_media">
-            <option value="" class="option">---</option>
-            <option value="popularite" class="option">Popularité</option>
-            <option value="date" class="option">Date</option>
-            <option value="titre" class="option">Titre</option>
+            <option value="" class="option_null"></option>
+            <option value="popularite" class="option" aria-labelledby="tri_media">Popularité</option>
+            <option value="date" class="option" aria-labelledby="tri_media">Date</option>
+            <option value="titre" class="option" aria-labelledby="tri_media">Titre</option>
           </select>
         </div>
         <div class="media"></div>
@@ -33,7 +33,7 @@
     <div id="contact_modal">
 			<div class="modal" role="dialog" aria-labelledby="contact_modal">
 				<header>
-          <h2>Contactez-moi</h2>
+          <h1 class="header_contact">Contactez-moi</h1>
           <img src="assets/icons/close.svg" onclick="closeModal()" aria-label="fermer le modale" />
         </header>
 				<form class="contact_form" method="post">
@@ -42,29 +42,32 @@
 						<input type="text" name="prenom" 
             id="prenom" aria-labelledby="first_name" 
             aria-required="true" required>
+            <p class="prenom-erreur erreur"></p>
 
             <label for="nom" id="last_name">Nom</label>
 						<input type="text" name="nom"
              id="nom" aria-labelledby="last_name" 
              aria-required="true" required>
+             <p class="nom-erreur erreur"></p>
 
             <label for="email" id="email">Email</label>
 						<input type="email" name="email" 
             id="email" aria-labelledby="email" 
             aria-required="true" required>
+            <p class="email-erreur erreur"></p>
 
             <label for="message" id="your_message">Votre message</label>
 						<textarea name="message" 
             id="message" aria-labelledby="your_message" 
             aria-required="true" required></textarea>
+            <p class="message-erreur erreur"></p>
 					</div>
           <button class="contact_button" aria-label="Envoi le formulaire">Envoyer</button>
 				</form>
 			</div>
 		</div>
-    <div id="media_modal">
-      <!-- <img src="assets/icons/close.svg" class="close" aria-label="fermer le modale" /> -->
-      <span class="close">
+    <div id="media_modal" role="dialog" aria-label="vue rapprochée de l'image">
+      <span class="close" aria-label="ferme le dialog">
         <i class="fa-solid fa-xmark"></i>
       </span>
       <div class="container">
