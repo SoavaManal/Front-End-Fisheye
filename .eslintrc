@@ -1,0 +1,19 @@
+// Nous pouvons generer automatiquement se fichier avec la commande
+// npm init @eslint/config
+{
+    /* indique à esLint de ne pas chercher des fichier de config dans des repertoires
+       plus haut que celui dans se trouve se fichier*/
+    "root": true,   
+    "parserOptions": {
+      "ecmaVersion": 2018,
+      "sourceType": "module",
+      "parser": "babel-eslint"
+    },
+    "env": {
+      "browser": true,
+      "es6": true
+    },
+    "extends": [
+      "eslint:recommended"
+    ]
+  }

@@ -20,7 +20,7 @@ export function modalMedia(nbr) {
       // afficher le media
       // appliquer une translate de (-i*655)px pour afficher la bonne image
       document.querySelector(".container").style.transform =
-        "translate(" + -i * 655 + "px)";
+        "translate(" + -i * 654 + "px)";
       console.log("l'indice: ", i);
 
       // glisser a gauche et a droite
@@ -31,12 +31,13 @@ export function modalMedia(nbr) {
           if (position !== -nbr + 1) {
             position--;
             document.querySelector(".container").style.transform =
-              "translate(" + position * 655 + "px)";
+              "translate(" + position * 654 + "px)";
             console.log("right");
           } else {
             //r.style.visibility = "hidden";
             position = 0;
           }
+          r.focus();
         });
       });
 
@@ -47,12 +48,13 @@ export function modalMedia(nbr) {
             position++;
             console.log(position);
             document.querySelector(".container").style.transform =
-              "translate(" + position * 655 + "px)";
+              "translate(" + position * 654 + "px)";
             console.log("left");
           } else {
             position = -nbr;
             //l.style.visibility = "hidden";
           }
+          l.focus();
         });
       });
     });

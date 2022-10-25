@@ -1,5 +1,5 @@
 export function mediaFactory(data) {
-  const { id, photographerId, title, image, video, likes, date, price } = data;
+  const { id, title, image, video, likes } = data;
 
   // Structurer le Dom pour les medias
   function getMedia(name) {
@@ -13,6 +13,7 @@ export function mediaFactory(data) {
       const video = document.createElement("video");
       video.setAttribute("src", videoMedia);
       video.setAttribute("controls", "");
+      video.setAttribute("title", title);
       video.classList.add("media_lightbox");
 
       article.appendChild(video);
@@ -67,6 +68,7 @@ export function mediaFactory(data) {
     if (video) {
       videoLightbox.setAttribute("src", videoMedia);
       videoLightbox.setAttribute("controls", "");
+      videoLightbox.setAttribute("title", title);
       divMedia.appendChild(videoLightbox);
     }
     if (image) {

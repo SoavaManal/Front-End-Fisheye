@@ -74,6 +74,7 @@ async function displayMedia(medias) {
 }
 
 // appel des fonctions
+
 const allMedias = await getMedias();
 const photographer = await getPhotographer();
 const nbr = allMedias.length;

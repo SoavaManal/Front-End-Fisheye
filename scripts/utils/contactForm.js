@@ -1,5 +1,6 @@
 // on click
-function displayModal() {
+const btn_contact = document.querySelector(".contact_button");
+btn_contact.addEventListener("click", () => {
   const modal = document.getElementById("contact_modal");
   modal.style.display = "block";
   document.querySelector("#main").classList.add("effet_flou");
@@ -7,16 +8,17 @@ function displayModal() {
   document.querySelector("#main").setAttribute("aria-hidden", "true");
   //rendre modal focalisable par le clavier
   modal.focus();
-}
+});
 
 // close
-function closeModal() {
+const btn_close = document.querySelector(".contact_close");
+btn_close.addEventListener("click", () => {
   const modal = document.getElementById("contact_modal");
   modal.style.display = "none";
   document.querySelector("#main").classList.remove("effet_flou");
   document.querySelector("#main").setAttribute("aria-hidden", "false");
   modal.focus();
-}
+});
 
 // le formulaire de contacte
 const prenom = document.querySelector("#prenom");
@@ -26,23 +28,34 @@ const message = document.querySelector("#message");
 
 const form_submit = document.querySelector(".contact_form");
 form_submit.addEventListener("submit", (event) => {
-  // message d'erreur
-  if (!prenom.value) {
-    document.querySelector(".prenom-erreur").innerText =
-      "Veuillez entrer un prenom";
-  }
-  if (!nom.value) {
-    document.querySelector(".nom-erreur").innerText = "Veuillez entrer un nom";
-  }
-  if (!email.value) {
-    document.querySelector(".email-erreur").innerText =
-      "Veuillez entrer un email valide";
-  }
-  if (!message.value) {
-    document.querySelector(".prenom-erreur").innerText =
-      "Veuillez entrer un message";
-  }
   event.preventDefault();
+  // message d'erreur
+  // if (!prenom.value || !nom.value || !email.value || !message.value) {
+  //   if (!prenom.value) {
+  //     document.querySelector(".prenom-erreur").innerText =
+  //       "Veuillez entrer un prenom";
+  //   } else {
+  //     document.querySelector(".prenom-erreur").innerText = "";
+  //   }
+  //   if (!nom.value) {
+  //     document.querySelector(".nom-erreur").innerText =
+  //       "Veuillez entrer un nom";
+  //   } else {
+  //     document.querySelector(".nom-erreur").innerText = "";
+  //   }
+  //   if (!email.value) {
+  //     document.querySelector(".email-erreur").innerText =
+  //       "Veuillez entrer un email valide";
+  //   } else {
+  //     document.querySelector(".email-erreur").innerText = "";
+  //   }
+  //   if (!message.value) {
+  //     document.querySelector(".prenom-erreur").innerText =
+  //       "Veuillez entrer un message";
+  //   } else {
+  //     document.querySelector(".prenom-erreur").innerText = "";
+  //   }
+  // } else {
   const contact = {
     nom: nom.value,
     prenom: prenom.value,
@@ -51,4 +64,5 @@ form_submit.addEventListener("submit", (event) => {
   };
   console.log(contact);
   form_submit.reset();
+  // }
 });
