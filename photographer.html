@@ -21,7 +21,7 @@
         <div class="tri">
           <label for="tri_media">Trier par</label>
           <select name="tri_media" id="tri_media">
-            <option value="" class="option_null"></option>
+            <option selected disabled></option>
             <option value="popularite" class="option" aria-labelledby="tri_media">Popularité</option>
             <option value="date" class="option" aria-labelledby="tri_media">Date</option>
             <option value="titre" class="option" aria-labelledby="tri_media">Titre</option>
@@ -34,45 +34,45 @@
 			<div class="modal" role="dialog" aria-labelledby="contact_modal">
 				<header>
           <h1 class="header_contact">Contactez-moi</h1>
-          <img src="assets/icons/close.svg" class="contact_close" aria-label="fermer le modale" />
+          <img src="assets/icons/close.svg" class="contact_close" aria-label="fermer le modale" tabindex="0" />
         </header>
 				<form class="contact_form" method="post">
 					<div>
 						<label for="prenom" id="first_name">Prénom</label>
 						<input type="text" name="prenom" 
             id="prenom" aria-labelledby="first_name" 
-            aria-required="true" required>
+            aria-required="true" >
             <p class="prenom-erreur erreur"></p>
 
             <label for="nom" id="last_name">Nom</label>
 						<input type="text" name="nom"
              id="nom" aria-labelledby="last_name" 
-             aria-required="true" required>
+             aria-required="true" >
              <p class="nom-erreur erreur"></p>
 
-            <label for="email" id="email">Email</label>
-						<input type="email" name="email" 
-            id="email" aria-labelledby="email" 
-            aria-required="true" required>
+            <label for="email" id="your_email">Email</label>
+            <input type="email" id="email" name="email" aria-labelledby="your_email" aria-required="true">
             <p class="email-erreur erreur"></p>
 
             <label for="message" id="your_message">Votre message</label>
 						<textarea name="message" 
             id="message" aria-labelledby="your_message" 
-            aria-required="true" required></textarea>
+            aria-required="true" ></textarea>
             <p class="message-erreur erreur"></p>
 					</div>
           <button class="contact_button" aria-label="Envoi le formulaire">Envoyer</button>
 				</form>
 			</div>
 		</div>
-    <div id="media_modal" role="dialog" aria-label="vue rapprochée de l'image">
-      <span class="close" aria-label="ferme le dialog">
+    <div class="medias_modal" role="dialog">
+    <div class="medias"  aria-label="vue rapprochée de l'image">
+      <span class="close" aria-label="ferme le dialog" tabindex="0">
         <i class="fa-solid fa-xmark"></i>
       </span>
       <div class="container">
       </div>
     </div>
+  </div>
     <!-- <script src="scripts/factories/photographer.js"></script> -->
     <script type="module" src="/scripts/pages/photographer.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>

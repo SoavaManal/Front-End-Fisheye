@@ -74,106 +74,109 @@ async function displayMedia(medias) {
 }
 
 // appel des fonctions
+async function init() {
+  const allMedias = await getMedias();
+  const nbr = allMedias.length;
+  const photographer = await getPhotographer();
 
-const allMedias = await getMedias();
-const photographer = await getPhotographer();
-const nbr = allMedias.length;
-
-await displayData(photographer);
-await displayMedia(allMedias);
-modalMedia(nbr);
-getEncart(photographer, allMedias);
-
-// fonction pour afficher les donnees sur encart
-async function getEncart(photographer, medias) {
-  const encart = document.createElement("aside");
-  encart.classList.add("encart");
-
-  // calculer le totals des likes
-  let likes = 0;
-  medias.forEach((media) => {
-    likes += mediaFactory(media).likes;
-  });
-
-  // ajouter ou retirer un like
-  function heartLogique(like) {
-    switch (like) {
-      case 0:
-        like++;
-        likes++;
-        console.log("like:", like);
-        break;
-      case 1:
-        like--;
-        likes--;
-        console.log("like:", like);
-        break;
-    }
-    return like;
-  }
-
-  const p1 = document.createElement("p");
-  const heartIcon = document.querySelectorAll(".heart");
-  // pour chaque image
-  for (let i = 0; i < heartIcon.length; i++) {
-    // le like=0 au depart
-    let like = 0;
-    heartIcon[i].addEventListener("click", () => {
-      // au click le like=1 et les likes incremente
-      // au click le like=0 et les likes decremente
-      like = heartLogique(like);
-      console.log("deja liké ou pas: ", like);
-      console.log("totale des likes: ", likes);
-
-      // modifier le total du like
-      p1.textContent = likes;
-      const icon = document.createElement("span");
-      icon.innerHTML = `<i class="fa-solid fa-heart"></i>`;
-      p1.appendChild(icon);
-    });
-  }
-
-  console.log("le total du likes:", likes);
-  p1.textContent = likes;
-  const icon = document.createElement("span");
-  icon.innerHTML = `<i class="fa-solid fa-heart"></i>`;
-  p1.appendChild(icon);
-
-  const p2 = document.createElement("p");
-  p2.innerText = photographerFactory(photographer).price + "€ / jour";
-
-  encart.appendChild(p1);
-  encart.appendChild(p2);
-
-  main.appendChild(encart);
-}
-
-// ---selector:trier les medias---
-
-const leTri = document.querySelector("#tri_media");
-leTri.addEventListener("change", (e) => {
-  console.log(e.target.value);
-
-  // boucle pour verifier la valeur du selector
-  switch (e.target.value) {
-    case "popularite":
-      allMedias.sort((a, b) => b.likes - a.likes);
-      console.log(allMedias);
-      break;
-    case "date":
-      allMedias.sort(
-        (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-      );
-      console.log(allMedias);
-      break;
-    case "titre":
-      allMedias.sort((a, b) => a.title[0].localeCompare(b.title[0]));
-      console.log(allMedias);
-      break;
-  }
-  document.querySelector(".media").innerHTML = "";
-  document.querySelector(".container").innerHTML = "";
-  displayMedia(allMedias);
+  await displayData(photographer);
+  await displayMedia(allMedias);
   modalMedia(nbr);
   getEncart(photographer, allMedias);
-});
+
+  // fonction pour afficher les donnees sur encart
+  async function getEncart(photographer, medias) {
+    const encart = document.createElement("aside");
+    encart.classList.add("encart");
+
+    // calculer le totals des likes
+    let likes = 0;
+    medias.forEach((media) => {
+      likes += mediaFactory(media).likes;
+    });
+
+    // ajouter ou retirer un like
+    function heartLogique(like) {
+      switch (like) {
+        case 0:
+          like++;
+          likes++;
+          console.log("like:", like);
+          break;
+        case 1:
+          like--;
+          likes--;
+          console.log("like:", like);
+          break;
+      }
+      return like;
+    }
+
+    const p1 = document.createElement("p");
+    const heartIcon = document.querySelectorAll(".heart");
+    // pour chaque image
+    for (let i = 0; i < heartIcon.length; i++) {
+      // le like=0 au depart
+      let like = 0;
+      heartIcon[i].addEventListener("click", () => {
+        // au click le like=1 et les likes incremente
+        // au click le like=0 et les likes decremente
+        like = heartLogique(like);
+        console.log("deja liké ou pas: ", like);
+        console.log("totale des likes: ", likes);
+
+        // modifier le total du like
+        p1.textContent = likes;
+        const icon = document.createElement("span");
+        icon.innerHTML = `<i class="fa-solid fa-heart"></i>`;
+        p1.appendChild(icon);
+      });
+    }
+
+    console.log("le total du likes:", likes);
+    p1.textContent = likes;
+    const icon = document.createElement("span");
+    icon.innerHTML = `<i class="fa-solid fa-heart"></i>`;
+    p1.appendChild(icon);
+
+    const p2 = document.createElement("p");
+    p2.innerText = photographerFactory(photographer).price + "€ / jour";
+
+    encart.appendChild(p1);
+    encart.appendChild(p2);
+    const main = document.querySelector("#main");
+    console.log(main);
+    main.appendChild(encart);
+  }
+
+  // ---selector:trier les medias---
+
+  const leTri = document.querySelector("#tri_media");
+  leTri.addEventListener("change", (e) => {
+    console.log(e.target.value);
+
+    // boucle pour verifier la valeur du selector
+    switch (e.target.value) {
+      case "popularite":
+        allMedias.sort((a, b) => b.likes - a.likes);
+        console.log(allMedias);
+        break;
+      case "date":
+        allMedias.sort(
+          (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+        );
+        console.log(allMedias);
+        break;
+      case "titre":
+        allMedias.sort((a, b) => a.title[0].localeCompare(b.title[0]));
+        console.log(allMedias);
+        break;
+    }
+    document.querySelector(".media").innerHTML = "";
+    document.querySelector(".container").innerHTML = "";
+    displayMedia(allMedias);
+    modalMedia(nbr);
+    getEncart(photographer, allMedias);
+  });
+}
+init();

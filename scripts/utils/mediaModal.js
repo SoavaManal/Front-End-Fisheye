@@ -1,19 +1,28 @@
 // factory function
 export function modalMedia(nbr) {
-  // close button
   const closeIt = document.querySelector(".close");
-  closeIt.addEventListener("click", () => {
-    // cache la modal
-    document.querySelector("#media_modal").style.display = "none";
+  function closeModal() {
+    document.querySelector(".medias_modal").style.display = "none";
     document.querySelector("#main").classList.remove("effet_flou");
     document.querySelector("#main").setAttribute("aria-hidden", "false");
+    closeIt.focus();
+  }
+  // close button
+  closeIt.addEventListener("click", () => {
+    closeModal();
+  });
+
+  closeIt.addEventListener("keypress", (event) => {
+    if (event.key == "Enter") {
+      closeModal();
+    }
   });
 
   // au click sur un article
   const btn_media = document.querySelectorAll(".media_lightbox");
   for (let i = 0; i < btn_media.length; i++) {
     btn_media[i].addEventListener("click", () => {
-      document.querySelector("#media_modal").style.display = "block";
+      document.querySelector(".medias_modal").style.display = "block";
       document.querySelector("#main").classList.add("effet_flou");
       // appliquer le aria-hidden sur le contenu en arriere plan
       document.querySelector("#main").setAttribute("aria-hidden", "true");
