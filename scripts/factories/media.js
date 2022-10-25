@@ -1,5 +1,5 @@
 export function mediaFactory(data) {
-  const { id, title, image, video, likes } = data;
+  let { id, title, image, video, likes } = data;
 
   // Structurer le Dom pour les medias
   function getMedia(name) {
@@ -31,12 +31,15 @@ export function mediaFactory(data) {
     const p = document.createElement("p");
     p.innerText = title;
     const span = document.createElement("span");
-    span.innerText = likes;
+    const nbr_like = document.createElement("p");
+    nbr_like.classList.add("likes");
+    nbr_like.innerText = likes;
 
     const icon = document.createElement("span");
     icon.innerHTML = `<i class="fa-solid fa-heart" aria-label="like"></i>`;
     icon.classList.add("heart");
 
+    span.appendChild(nbr_like);
     span.appendChild(icon);
     barreInfo.appendChild(p);
     barreInfo.appendChild(span);

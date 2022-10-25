@@ -113,6 +113,7 @@ async function init() {
     }
 
     const p1 = document.createElement("p");
+    let spanLike = document.querySelectorAll(".likes");
     const heartIcon = document.querySelectorAll(".heart");
     // pour chaque image
     for (let i = 0; i < heartIcon.length; i++) {
@@ -122,7 +123,12 @@ async function init() {
         // au click le like=1 et les likes incremente
         // au click le like=0 et les likes decremente
         like = heartLogique(like);
-        console.log("deja liké ou pas: ", like);
+        let nbrLike = parseInt(spanLike[i].textContent);
+        if (like == 0) {
+          spanLike[i].textContent = nbrLike - 1;
+        } else if (like == 1) {
+          spanLike[i].textContent = nbrLike + 1;
+        }
         console.log("totale des likes: ", likes);
 
         // modifier le total du like
@@ -145,7 +151,6 @@ async function init() {
     encart.appendChild(p1);
     encart.appendChild(p2);
     const main = document.querySelector("#main");
-    console.log(main);
     main.appendChild(encart);
   }
 
