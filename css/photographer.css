@@ -255,11 +255,36 @@ form textarea{
     left:0;
 }
 .effet_flou{
-    filter: blur(10px)
+    filter: blur(10px);
 }
 .media_lightbox{
     cursor: pointer;
 }
 .media_lightbox:hover{
     transform: scale(1.07);
+}
+.heart_span{
+    display: flex;
+}
+.tab_accessibility{
+    position: absolute;
+    top:-10rem;
+    z-index: 100;
+    width: 100%;
+}
+
+.tab_accessibility a {
+    background-color: rgba(255,255,255,0.5);
+    color:#901C1C;
+    font-size: 1.1em;
+    font-weight: bold;
+    text-align: center;
+    position: absolute;
+    left:0;
+    right: 0;
+}
+
+.tab_accessibility a:hover,
+.tab_accessibility a:focus{
+    top:10em;
 }

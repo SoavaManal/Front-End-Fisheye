@@ -1,9 +1,10 @@
+// factory function
 export function photographerFactory(data) {
   const { id, name, portrait, city, country, tagline, price } = data;
-
+  // chemin ou source pour recuperer les portrail des photographes
   const picture = `assets/photographers/Photographers ID Photos/${portrait}`;
 
-  // structurer le DOM page d'accueil
+  // methode pour afficher les photographers
   function getUserCardDOM() {
     const article = document.createElement("article");
 
@@ -36,7 +37,7 @@ export function photographerFactory(data) {
     return article;
   }
 
-  // Structrer le DOM page photographer
+  // methode pour afficher un seul photographer
   function getPohotographersInfo() {
     const barreInfo = document.createElement("div");
     barreInfo.classList.add("info_photographer");

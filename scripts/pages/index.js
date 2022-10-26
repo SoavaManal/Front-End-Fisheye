@@ -10,13 +10,12 @@ async function getPhotographers() {
   return photographers.photographers;
 }
 
-// inserer les elements a la DOM
+// afficher les photographers
 async function displayData(photographers) {
   const photographersSection = document.querySelector(".photographer_section");
 
   photographers.forEach((photographer) => {
     const photographerModel = photographerFactory(photographer);
-    //console.log(photographerFactory(photographer).name);
     const userCardDOM = photographerModel.getUserCardDOM();
     photographersSection.appendChild(userCardDOM);
   });

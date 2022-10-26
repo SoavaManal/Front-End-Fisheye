@@ -8,14 +8,30 @@
     <title>Fisheye - photographe </title>
   </head>
   <body>
+    <!-- accessibilite: liens pour facilité la navigation dans la page -->
+    <ul class="tab_accessibility">
+      <li>
+        <a href="#logos">Revenir à la page d'accueil</a>
+      </li>
+      <li>
+        <a href="#contact_moi">Contacter le photographe</a>
+      </li>
+      <li>
+        <a href="#tri_media">Trier les medias</a>
+      </li>
+      <li>
+        <a href="#all_media">Visualiser les medias</a>
+      </li>
+    </ul>
     <header>
-      <a href="index.html">
-        <img src="assets/images/logo.png" class="logo" alt="page d'accueil de Fisheye"/>
+      <a href="index.html" id="logos">
+        <img src="assets/images/logo.png" class="logo"  alt="page d'accueil de Fisheye"/>
       </a>
     </header>
     <main id="main">
+      
       <div class="photograph-header">
-        <button class="contact_button"">Contactez-moi</button>
+        <button class="contact_button" id="contact_moi">Contactez-moi</button>
       </div>
       <div class="photograph-media">
         <div class="tri">
@@ -27,7 +43,7 @@
             <option value="titre" class="option" aria-labelledby="tri_media">Titre</option>
           </select>
         </div>
-        <div class="media"></div>
+        <div class="media" id="all_media"></div>
       
     </main>
     <div id="contact_modal">
@@ -39,9 +55,7 @@
 				<form class="contact_form" method="post">
 					<div>
 						<label for="prenom" id="first_name">Prénom</label>
-						<input type="text" name="prenom" 
-            id="prenom" aria-labelledby="first_name" 
-            aria-required="true" >
+						<input type="text" name="prenom" id="prenom" aria-labelledby="first_name" aria-required="true">
             <p class="prenom-erreur erreur"></p>
 
             <label for="nom" id="last_name">Nom</label>
@@ -65,8 +79,13 @@
 			</div>
 		</div>
     <div class="medias_modal" role="dialog">
+      <ul class="tab_accessibility">
+        <li>
+          <a href="#closeIt">Fermer le modal</a>
+        </li>
+      </ul>
     <div class="medias"  aria-label="vue rapprochée de l'image">
-      <span class="close" aria-label="ferme le dialog" tabindex="0">
+      <span class="close" id="closeIt" aria-label="ferme le dialog" tabindex="0">
         <i class="fa-solid fa-xmark"></i>
       </span>
       <div class="container">
