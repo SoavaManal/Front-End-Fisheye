@@ -2,15 +2,19 @@
 const closeIt = document.querySelector(".close");
 const main = document.querySelector("#main");
 const container = document.querySelector(".container");
+const modal = document.querySelector(".medias_modal");
+
+const focus = '[tabindex="0"]';
+const focusableContent = modal.querySelector(focus);
 
 // le modal medias
 export function modalMedia(nbr) {
   // function close
   function closeModal() {
-    document.querySelector(".medias_modal").style.display = "none";
+    modal.style.display = "none";
     main.classList.remove("effet_flou");
     main.setAttribute("aria-hidden", "false");
-    closeIt.focus();
+    // closeIt.focus();
   }
   // fermer avec la sourie au click
   closeIt.addEventListener("click", () => {
@@ -32,6 +36,7 @@ export function modalMedia(nbr) {
     main.setAttribute("aria-hidden", "true");
     // appliquer une translate de (-i*655)px pour afficher la bonne image
     container.style.transform = "translate(" + -i * 654 + "px)";
+
     console.log("l'indice: ", i);
     let position = -i;
 
@@ -78,6 +83,10 @@ export function modalMedia(nbr) {
       }
       if (event.key == "ArrowLeft") {
         arrowLeft();
+      }
+      if (event.key == "Tab") {
+        focusableContent.focus();
+        event.preventDefault();
       }
     });
   }

@@ -1,11 +1,42 @@
+// varriables
+const main = document.querySelector("#main");
+const modal = document.getElementById("contact_modal");
+// garder le focus dans la modal
+// les elements focusable dans la modal contact
+const focusableElement = '[tabindex="0"], input, textarea, button';
+// premier element focusable
+const firstFocusableElement = modal.querySelectorAll(focusableElement)[0];
+const focusContent = modal.querySelectorAll(focusableElement);
+// derniere element focusable
+const lastFocusableElement = focusContent[focusContent.length - 1];
+
+document.addEventListener("keydown", (e) => {
+  let isTab = e.key == "Tab";
+  if (!isTab) {
+    return;
+  }
+  if (e.shiftKey) {
+    // si la key shift est pressé pour un shift+tab "revenir en arriére"
+    if (document.activeElement == firstFocusableElement) {
+      // si le focus est sur le premier element
+      lastFocusableElement.focus(); // en revient vers le derniere element focusable
+      e.preventDefault();
+    }
+  } else {
+    if (document.activeElement == lastFocusableElement) {
+      // si le focus est sur le dernier element
+      firstFocusableElement.focus(); // en revient vers le premier element focusable
+      e.preventDefault();
+    }
+  }
+});
+
 //---close---
 // fonction pour fermer la modal
 function closeModal() {
-  const modal = document.getElementById("contact_modal");
   modal.style.display = "none";
-  document.querySelector("#main").classList.remove("effet_flou");
-  document.querySelector("#main").setAttribute("aria-hidden", "false");
-  modal.focus();
+  main.classList.remove("effet_flou");
+  main.setAttribute("aria-hidden", "false");
 }
 
 // en utilisant le clavier
@@ -25,12 +56,11 @@ btn_close.addEventListener("click", () => {
 // fonction pour ouvrir la modal
 const btn_contact = document.querySelector(".contact_button");
 btn_contact.addEventListener("click", () => {
-  const modal = document.getElementById("contact_modal");
   modal.style.display = "block";
-  document.querySelector("#main").classList.add("effet_flou");
+  main.classList.add("effet_flou");
   // empecher les AT de lire le contenu en arriére plan
-  document.querySelector("#main").setAttribute("aria-hidden", "true");
-  modal.focus();
+  main.setAttribute("aria-hidden", "true");
+  firstFocusableElement.focus(); // focus sur le premier element du modal
 });
 
 // recuperer les valeurs du champs formulaire

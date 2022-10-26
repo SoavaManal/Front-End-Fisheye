@@ -71,14 +71,13 @@ export function mediaFactory(data) {
 
     const span_left = document.createElement("span");
     span_left.classList.add("span_left");
-    span_left.setAttribute("tabindex", "0");
-    span_left.focus();
     span_left.innerHTML = `<i class="fa-solid fa-chevron-left" label-aria="image précédente"></i>`;
     divMedia.appendChild(span_left);
     if (video) {
       videoLightbox.setAttribute("src", videoMedia);
       videoLightbox.setAttribute("controls", "");
       videoLightbox.setAttribute("title", title);
+      videoLightbox.setAttribute("tabindex", "-1");
       divMedia.appendChild(videoLightbox);
     }
     if (image) {
@@ -88,8 +87,6 @@ export function mediaFactory(data) {
     }
     const span_right = document.createElement("span");
     span_right.classList.add("span_right");
-    span_right.setAttribute("tabindex", "0");
-    span_right.focus();
     span_right.innerHTML = `<i class="fa-solid fa-chevron-right label-aria="image suivante"></i>`;
     divMedia.appendChild(span_right);
 

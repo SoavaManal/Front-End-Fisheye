@@ -206,7 +206,7 @@ form textarea{
     overflow: hidden;
     position: fixed;
     top:100px;
-    left:20%;
+    left:25%;
     background-color: white;
 
 }
@@ -270,7 +270,8 @@ form textarea{
     position: absolute;
     top:-10rem;
     z-index: 100;
-    width: 100%;
+    width: 80%;
+   
 }
 
 .tab_accessibility a {
