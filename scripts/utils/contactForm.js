@@ -1,7 +1,7 @@
 // varriables
 const main = document.querySelector("#main");
 const modal = document.getElementById("contact_modal");
-// garder le focus dans la modal
+// piéger le focus  l'interieur du modal
 // les elements focusable dans la modal contact
 const focusableElement = '[tabindex="0"], input, textarea, button';
 // premier element focusable

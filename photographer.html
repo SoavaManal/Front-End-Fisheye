@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
   <head>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" >
     <meta charset="utf-8">
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
@@ -25,7 +25,7 @@
     </ul>
     <header>
       <a href="index.html" id="logos">
-        <img src="assets/images/logo.png" class="logo"  alt="page d'accueil de Fisheye"/>
+        <img src="assets/images/logo.png" class="logo"  alt="page d'accueil de Fisheye">
       </a>
     </header>
     <main id="main">
@@ -37,20 +37,20 @@
         <div class="tri">
           <label for="tri_media">Trier par</label>
           <select name="tri_media" id="tri_media">
-            <option selected disabled></option>
+            <option selected disabled> </option>
             <option value="popularite" class="option" aria-labelledby="tri_media">Popularité</option>
             <option value="date" class="option" aria-labelledby="tri_media">Date</option>
             <option value="titre" class="option" aria-labelledby="tri_media">Titre</option>
           </select>
         </div>
         <div class="media" id="all_media"></div>
-      
+      </div>
     </main>
     <div id="contact_modal">
 			<div class="modal" role="dialog" aria-labelledby="contact_modal">
 				<header>
           <h1 class="header_contact">Contactez-moi</h1>
-          <img src="assets/icons/close.svg" class="contact_close" aria-label="fermer le modale" tabindex="0" />
+          <img src="assets/icons/close.svg" alt="fermer le modale" class="contact_close" tabindex="0" />
         </header>
 				<form class="contact_form" method="post">
 					<div>
@@ -78,14 +78,14 @@
 				</form>
 			</div>
 		</div>
-    <div class="medias_modal" role="dialog">
+    <div class="medias_modal" role="dialog" aria-label="vue rapprochée de l'image">
       <ul class="tab_accessibility">
         <li>
           <a href="#closeIt">Fermer le modal</a>
         </li>
       </ul>
-    <div class="medias"  aria-label="vue rapprochée de l'image">
-      <span class="close" id="closeIt" aria-label="ferme le dialog" tabindex="0">
+    <div class="medias">
+      <span class="close" id="closeIt" aria-label="fermer le dialog" tabindex="0">
         <i class="fa-solid fa-xmark"></i>
       </span>
       <div class="container">

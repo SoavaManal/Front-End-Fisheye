@@ -71,7 +71,8 @@ export function mediaFactory(data) {
 
     const span_left = document.createElement("span");
     span_left.classList.add("span_left");
-    span_left.innerHTML = `<i class="fa-solid fa-chevron-left" label-aria="image précédente"></i>`;
+    span_left.setAttribute("aria-label", "image precédente");
+    span_left.innerHTML = `<i class="fa-solid fa-chevron-left"></i>`;
     divMedia.appendChild(span_left);
     if (video) {
       videoLightbox.setAttribute("src", videoMedia);
@@ -83,11 +84,13 @@ export function mediaFactory(data) {
     if (image) {
       imgLightbox.setAttribute("src", picture);
       imgLightbox.setAttribute("alt", title);
+      //imgLightbox.setAttribute("tabindex", "0");
       divMedia.appendChild(imgLightbox);
     }
     const span_right = document.createElement("span");
     span_right.classList.add("span_right");
-    span_right.innerHTML = `<i class="fa-solid fa-chevron-right label-aria="image suivante"></i>`;
+    span_right.setAttribute("aria-label", "image suivante");
+    span_right.innerHTML = `<i class="fa-solid fa-chevron-right"></i>`;
     divMedia.appendChild(span_right);
 
     h1.innerText = title;
